@@ -7,5 +7,5 @@ const {vedett}=require('../mwares/authMiddleware');
 router.post('/login',Login);
 router.post('/register',Register);
 router.get('/userinfo',vedett, userInfo);
-//asd
+//hallo
 module.exports=router;
