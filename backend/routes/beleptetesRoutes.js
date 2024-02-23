@@ -1,9 +1,9 @@
 const express=require('express');
 const router=express.Router();
 
-const{film_lista}=require('../controllers/beleptetesController');
+const{Film_lista}=require('../controllers/beleptetesController');
 //const {vedett}=require('../mwares/authMiddleware');
 
-router.post('/login',film_lista);
+router.get('/filmek',Film_lista);
 
 module.exports=router;
