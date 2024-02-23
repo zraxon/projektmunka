@@ -1,8 +1,6 @@
-const jwt=require('jsonwebtoken');
-const sqlite3=require('sqlite3');
-const db=new sqlite3.Database('../beleptetes.db');
+//const jwt=require('jsonwebtoken');
 
-const vedett = async (req,res,next)=>{
+/*const vedett = async (req,res,next)=>{
     let token;
 
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
@@ -27,3 +25,4 @@ const vedett = async (req,res,next)=>{
 };
 
 module.exports={vedett};
+*/

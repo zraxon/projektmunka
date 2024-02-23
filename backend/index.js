@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use('/',require('./routes/beleptetesRoutes'));
 
-app.listen(8000,()=>console.log("Running"));
+app.listen(8005,()=>console.log("Running"));
 
 app.get('/', (req,res) => {
     res.send('Felhasználó beléptetés');
