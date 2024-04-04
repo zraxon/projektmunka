@@ -1,15 +1,19 @@
 {
     "slides": [
       {
-        "src": "https://picsum.photos/seed/img1/600/400",
+        "src": "../src/assets/az2.jpg",
         "alt": "Image 1 for carousel"
       },
       {
-        "src": "https://picsum.photos/seed/img2/600/400",
+        "src": "../src/assets/ANyolcadikUtas.png",
         "alt": "Image 2 for carousel"
       },
       {
-        "src": "https://picsum.photos/seed/img3/600/400",
+        "src": "../src/assets/jurrasicvilagura.jpg",
+        "alt": "Image 3 for carousel"
+      },
+      {
+        "src": "../src/assets/ted.jpg",
         "alt": "Image 3 for carousel"
       }
     ]

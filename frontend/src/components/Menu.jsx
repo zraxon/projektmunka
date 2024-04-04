@@ -8,7 +8,7 @@ function Menu() {
 
   return (
     //fejléc
-    <div className="flex justify-center items-center border-b border-gray-300 flex-wrap py-5">
+    <div className="flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5">
       <img src="../src/assets/logo.png" className="w-46 h-40 px-7"/>
       <div className="relative items-center">
         <div className="relative flex items-center hidden md:inline-flex">
@@ -32,11 +32,11 @@ function Menu() {
             />
           </svg>
         </div>
-        <div className="relative items-center gap-2">
+        <div className="relative items-center gap-2 text-white">
           <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Műsorlista</Link>
           <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
-          <Link to={"/belepes"} className="border px-2 py-1 mr-3 rounded-md text-gray-500">Belépés</Link>
-          <Link to={"/regisztracio"} className="border px-2 py-1 mr-3 rounded-md bg-purple-600 text-white hover:bg-purple-700">Regisztráció</Link>
+          <Link to={"/belepes"} className="border px-2 py-1 mr-3 rounded-md ">Belépés</Link>
+          <Link to={"/regisztracio"} className="border px-2 py-1 mr-3 rounded-md bg-purple-600 hover:bg-purple-700">Regisztráció</Link>
         </div>
       </div>
     </div>

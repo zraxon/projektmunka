@@ -2,12 +2,11 @@ import Menu from "./components/Menu";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Vedett from "./components/Vedett";
-import { Carousel } from "./components/Main";
+import Main from "./components/Main";
 import { slides } from "./components/maindata.json";
 import {BrowserRouter as Router,Routes,Route,Navigate} from 'react-router-dom';
+import Sema from "./components/Sema";
 import { UserProvider } from "./context/UserContext";
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 
 function App() {
@@ -19,7 +18,8 @@ function App() {
       <Router>
         <Menu/>
         <Routes>
-          <Route path="/" element={<Carousel data = {slides} />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/filmek/:filmNev" element={<Sema />} />
           <Route path="/belepes" element={<Login />} />
           <Route path="/regisztracio" element={<Register />}/>
           <Route path="/vedett" element={<Vedett />} />
@@ -28,7 +28,6 @@ function App() {
        
       </Router>
       </UserProvider>
-      <ToastContainer />
     </>
   )
 }
