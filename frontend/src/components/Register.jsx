@@ -27,7 +27,6 @@ function Register()  {
     const onSubmit=(e)=>{
         e.preventDefault();
         kuldes(formData,'POST');
-        //action    
     }
     
     let formObj={};
@@ -53,7 +52,7 @@ function Register()  {
             <div className="h-screen bg-gray-200 py-20 p-4 md:p-20 lg:p-32">
                 <div className="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
                     <div className="p-6">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2">User Login</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">CinemaCloud</h2>
                         <p className="text-gray-700 mb-6">Kérjük regisztáljon.</p>
                         <form onSubmit={onSubmit}>
                             <div className="mb-4">

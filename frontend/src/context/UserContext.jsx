@@ -11,7 +11,7 @@ export const UserProvider=({children})=>{
     }
     const logout=()=>{
         sessionStorage.removeItem('usertoken');
-        update();
+        location.reload()
     }
 
     return<UserContext.Provider value={{refresh,update,logout}}>{children}</UserContext.Provider>

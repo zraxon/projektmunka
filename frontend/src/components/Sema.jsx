@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FilmekContext from "../context/FilmekContext";
+import Ted from "../assets/4.jpg"
 
 function Sema(){
-    const []
-    fetch(`http://localhost:8000/filmek`,{
-        method:"GET",
-        headers:{"Content-type":"application/json"}
-    })
-    .then(adat => {
-        adatok.push(adat.json()) 
-    })
-    .catch(err=>console.log(err));
-    console.log(adatok)
-    console.log(adatok)
+  const { filmId } = useParams();
 
-    const { filmNev } = useParams();
+  const { filmek, keres } = useContext(FilmekContext);
+  useEffect(() => {
+    const fetchData = async () => { await keres(filmId) }
+    fetchData()
+  }, [filmId])
+
 
   return(
     <div>
-      <h1> Film neve: {filmNev} </h1>
+        {filmek.length == 0 ? <h1> Nincs ilyen film</h1> :  ( <div>
+        
+        <h1> Film neve: {filmek.length > 0 && filmek[0].Cim} </h1>
+        <h2> Szereplők: {filmek.length > 0 && filmek[0].Szereplok}</h2>
+       </div>)}
     </div>
   )
 }
