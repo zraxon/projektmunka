@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { useContext, useEffect, useState } from "react";
-import { toast } from 'react-toastify';
 import bg from '../assets/log-reg-bg.jpg';
 
 function Menu() {
-  const [login, setLogin] = useState(false)
-  const [register, setRegister] = useState(false)
+  const token = sessionStorage.getItem("usertoken");
+  const [logggedIn, setLogin] = useState(false)
+  const [reg, setRegister] = useState(false)
 
   //navbar fix
   const [fix, setFix] = useState(false);
@@ -23,31 +23,12 @@ function Menu() {
   window.addEventListener("scroll", setFixed);
 
   //login
-  const { logout } = useContext(UserContext);
-  const token = sessionStorage.getItem("usertoken");
-
-  const kuldes = (formData, method) => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
-      method: method,
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(formData)
-    })
-      .then(res => res.json())
-      .then(token => {
-        if (!token.message) {
-          sessionStorage.setItem('usertoken', token)
-          toast.success("Sikeres belépés!")
-          location.reload();
-        }
-        else if (token.message == "0") alert("Hibás E-mail cím vagy jelszó!")
-      })
-      .catch(err => console.log(err));
-  }
+  const { logout, login, register, kep } = useContext(UserContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (login) {kuldes(formData, 'POST');}
-    else if (register) {regkuldes(formData);}
+    if (logggedIn) {login(formData, 'POST');}
+    else if (reg) {register(formData);}
     //action    
   }
 
@@ -69,9 +50,10 @@ function Menu() {
   const writeData = (e) => {
     setFormData((prevState) => ({ ...prevState, [e.target.id]: e.target.value }));
   }
+
   //login/register panel megjelenítése
   function kibe() {
-    if(!register){
+    if(!reg){
       if (document.getElementById('kibe').hidden == true) {
         setLogin(true);
         document.getElementById('kibe').hidden = false;
@@ -87,7 +69,7 @@ function Menu() {
   }
 
   function Rkibe() {
-    if(!login){
+    if(!logggedIn){
       if (document.getElementById('Rkibe').hidden == true) {
         setRegister(true);
         document.getElementById('Rblur').style.filter = "blur(12px)";
@@ -102,29 +84,9 @@ function Menu() {
     }
   }
 
-  //regisztráció
-  const regkuldes= async (formDat) =>{
-      await fetch(`${import.meta.env.VITE_BASE_URL}/register`,{
-          method: "POST",
-          headers:{"Content-type":"application/json"},
-          body:JSON.stringify(formDat)
-      })
-      .then(res=>res.json())
-      .then(token=>{
-          if(token.message != "0"){
-              sessionStorage.setItem('usertoken',token);
-              alert("Sikeres regisztráció!");
-              Rkibe()
-          } else {
-              alert(token.message);
-          };
-      })
-      .catch(err=>console.log(err));
-  }
-
   return (
     <div>
-      <div className={fix ? "fixed w-screen flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5" : "w-screen flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5"} style={{ zIndex: "99999" }}>
+      <div className={fix ? "fixed w-screen flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5" : "flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5"} style={{ zIndex: "99999" }}>
         <Link to={"/"}> <img src="../src/assets/logo.png" className="w-46 h-40 px-7" /> </Link>
         <div className="relative items-center">
           <div className="relative flex items-center md:inline-flex">
@@ -149,10 +111,13 @@ function Menu() {
             </svg>
           </div>
           <div className="relative items-center gap-2 text-white">
-            <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Műsorlista</Link>
+            <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Vetítések</Link>
             <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
             {token ?
+              <div className="flex">
               <button onClick={logout} className="border px-2 py-1 mr-3 rounded-md ">Kijelentkezés</button>
+              <img src={sessionStorage.getItem('ProfilePicture')} class="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"/>
+              </div>
               :
               <div>
                 <button onClick={kibe} className="border px-2 py-1 mr-3 rounded-md ">Belépés</button>
@@ -190,7 +155,7 @@ function Menu() {
           </form>
         </div>
       </div>
-        
+
         <div id="Rblur" hidden onClick={Rkibe} className=" fixed bg-gray-500 opacity-85 h-screen w-screen" style={{ zIndex: "8000" }}></div>
         <div id="Rkibe" hidden className={fix ? "fixed my-20 left-0 right-0 max-w-sm bg-white rounded-lg overflow-hidden shadow-lg mx-auto" : "fixed -my-40 left-0 right-0 max-w-sm bg-white rounded-lg overflow-hidden shadow-lg mx-auto"} style={{zIndex: "99999"}}>
           <div className="p-5">

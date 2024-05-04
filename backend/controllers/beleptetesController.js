@@ -68,9 +68,21 @@ const Login = (req, res) => {
     });
 };
 
+const getKep = (req, res) => {
+    const { E_mail } = req.params;
+    con.query("select pKep from vasarlok where E_mail = ?", [E_mail], (err, result) => {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            res.status(200).send(result)
+        }
+    })
+}
+
 module.exports = {
     Film_lista,
     FilmNev_lista,
     Register,
-    Login
+    Login,
+    getKep
 };
