@@ -31,8 +31,8 @@ const FilmNev_lista = (req, res) => {
     });
 };
 
-const generateToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"60000"});
+const generateToken=(email)=>{
+    return jwt.sign({email},process.env.JWT_SECRET,{expiresIn:"60000"});
 }
 
 const Register = (req, res) => {
@@ -40,10 +40,9 @@ const Register = (req, res) => {
     con.query("insert into vasarlok (Vnev, Knev, E_mail, Telefonszam, Allapot, Adoszam, Jelszo) values (?,?,?,?, 'Aktív',?,?)", [Vnev, Knev, E_mail2, Telefonszam, Adoszam, Jelszo2], (err, result) => {
         if (err) {
             res.status(400).send({"message": "0"});
-        } else {
+        } else {    
             if (result != ""){
                 const token = generateToken(E_mail2);
-                console.log("asd");
                 res.status(200).json(token);
             } else {
                 res.status(400).send({"message": "0"});
@@ -59,7 +58,7 @@ const Login = (req, res) => {
             res.status(400).send(err);
         } else {
             if (result != ""){
-                const token = generateToken(result.E_mail)
+                const token = generateToken(result[0].E_mail)
                 res.status(200).json(token);
             } else {
                 res.status(400).send({"message": "0"});
@@ -68,15 +67,33 @@ const Login = (req, res) => {
     });
 };
 
-const getKep = (req, res) => {
-    const { E_mail } = req.params;
-    con.query("select pKep from vasarlok where E_mail = ?", [E_mail], (err, result) => {
+const getInfo = (req, res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
-            res.status(400).send(err);
+            res.status(401).json({ error: "Érvénytelen token" });
         } else {
-            res.status(200).send(result)
+            const userEmail = decoded.email;
+            con.query("select pKep, E_mail, Telefonszam, Adoszam, Vnev, Knev from vasarlok where E_mail = ?", [userEmail], (err, result) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).send(result);
+                }
+            });
         }
-    })
+    });
+};
+
+const validation = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            res.status(200).json({ message: "A token érvényes!" })
+        }
+    });
 }
 
 module.exports = {
@@ -84,5 +101,6 @@ module.exports = {
     FilmNev_lista,
     Register,
     Login,
-    getKep
+    getInfo,
+    validation
 };

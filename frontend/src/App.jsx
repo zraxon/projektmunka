@@ -1,5 +1,5 @@
 import Menu from "./components/Menu";
-import Register from "./components/Register";
+import Settings from "./components/Settings";
 import Vedett from "./components/Vedett";
 import Main from "./components/Main";
 import {BrowserRouter as Router,Routes,Route,Navigate} from 'react-router-dom';
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/filmek/:filmId" element={<Sema />} />
-          <Route path="/regisztracio" element={<Register />}/>
+          <Route path="/settings" element={<Settings />}/>
           <Route path="/vedett" element={<Vedett />} />
           <Route path="*" element={<Navigate to={'/'} />} />          
         </Routes>
