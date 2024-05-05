@@ -5,8 +5,8 @@ function MainElem({ film }) {
     return (
         <div className='flex items-center justify-center'>
             <Link to={`/filmek/${film.Id}`}>
-                <div className=' mx-auto bg-white rounded-3xl shadow-xl'>
-                    <div className="grid rounded-3xl max-w-[370px] shadow-sm bg-slate-100  flex-col">
+                <div className='mx-auto rounded-3xl'>
+                    <div className="grid rounded-3xl max-w-[370px] shadow-sm bg-slate-100  flex-col bg-zinc-700 shadow-2xl shadow-black">
                         <img
                             src={film.kepLink}
                             width="375"
@@ -15,9 +15,9 @@ function MainElem({ film }) {
                             alt="movie.title"
                         />
 
-                        <div className="group p-6 grid z-10">
+                        <div className="group p-6 grid z-10 text-white">
                             <p className="group-hover:text-cyan-700 font-bold sm:text-2xl line-clamp-2">{film.Cim}</p>
-                            <span className="text-slate-400 pt-2 font-semibold">{film.Megjelenesi_Ev}</span>
+                            <span className="text-white pt-2 font-semibold">{film.Megjelenesi_Ev}</span>
                             <div className="h-28">
                                 <span className="line-clamp-4 py-2 text-sm font-light leading-relaxed">
                                     itt majd lesz 1 leírás 1x

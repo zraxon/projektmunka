@@ -1,7 +1,6 @@
 const { createPool }=require('mysql');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
-const { restart } = require('nodemon');
 
 const con = createPool({
     host: process.env.HOST,

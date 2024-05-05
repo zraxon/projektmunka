@@ -1,18 +1,18 @@
 import { useState, createContext, useEffect } from "react";
-import { toast } from 'react-toastify';
 
 const JegyContext = createContext();
 
 export const JegyProvider = ({ children }) => {
+    const [jegyArak, setJegyArak] = useState([])
 
-    async function JegyArak(){
+    async function Jegyek(){
         try {
-            const response = await fetch(`http://localhost:8000/filmek/`);
+            const response = await fetch(`http://localhost:8000/jegyarak`);
             if (!response.ok) {
                 throw new Error('A kérés sikertelen.');
             }
-            const filmek = await response.json();
-            setOFilmek(filmek);
+            const jegyArak = await response.json();
+            setJegyArak(jegyArak);
         } catch (err) {
             alert(err.message);
         }
@@ -20,7 +20,7 @@ export const JegyProvider = ({ children }) => {
 
 
     return (
-        <JegyContext.Provider value={{ JegyArak }}>
+        <JegyContext.Provider value={{ Jegyek, jegyArak }}>
             {children}
         </JegyContext.Provider>
     );

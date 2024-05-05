@@ -7,6 +7,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use('/',require('./routes/beleptetesRoutes'));
+app.use('/',require('./routes/jegyArakRoutes'));
+app.use('/',require('./routes/vetitesekRoutes'));
 
 app.listen(8000,()=>console.log("Running"));
 

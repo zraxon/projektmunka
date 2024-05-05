@@ -103,7 +103,7 @@ function Menu() {
   }
   return (
     <div>
-      <div className={fix ? "fixed w-screen flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5" : "flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5"} style={{ zIndex: "99999" }}>
+      <div className={fix ? "fixed w-screen flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5 shadow-lg shadow-black" : "flex justify-center items-center border-b bg-[#2c2b2d] flex-wrap py-5"} style={{ zIndex: "99999" }}>
         <Link to={"/"}><img src="../src/assets/logo.png" className="w-46 h-40 px-7" /></Link>
         <div className="grid grid-cols-1 items-center">
           <div className="relative flex items-center md:inline-flex">
@@ -115,7 +115,7 @@ function Menu() {
           <div className="relative items-center gap-2 text-whites w-200">
             <div className="relative items-center gap-2 text-white w-200 flex justify-between">
               <div>
-                <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Vetítések</Link>
+                <Link to={"/vetitesek"} className="border px-2 py-1 mr-3 rounded-md">Vetítések</Link>
                 <Link to={"/jegyarak"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
               </div>
               {token ? (
@@ -132,12 +132,12 @@ function Menu() {
         {token ? <img onClick={profileShow} src={pKep} className="flex w-32 h-32 rounded-full mx-3"/> : <></>}
       </div>
 
-      <div id="profileModule" className="absolute text-white w-200 bg-gray-600 p-10 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]" style={{ zIndex: "8000" }} hidden>
-        <ul>
-          <li>Név: {nev}</li>
-          <Link to={"/settings"}>Beállítások</Link>
-          <li onClick={logout}>Kijelentkezés</li>
-        </ul>
+      <div id="profileModule" className={fix ? "fixed rounded-xl border-[1px] border-white text-white w-200 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]" : "absolute rounded-xl border-[1px] border-white text-white w-200 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]"} style={{ zIndex: "8001"}} hidden>
+          <ul className="text-white opacity-80 bg-gray-600 top-0 p-8 rounded-xl">
+            <li className="z-10">Név: {nev}</li>
+            <Link to={"/settings"}>Beállítások</Link>
+            <li onClick={logout}>Kijelentkezés</li>
+          </ul>
       </div>
       
       <div

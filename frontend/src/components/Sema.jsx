@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FilmekContext from "../context/FilmekContext";
-import Ted from "../assets/4.jpg"
 
 function Sema(){
   const { filmId } = useParams();
