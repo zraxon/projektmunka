@@ -116,7 +116,7 @@ function Menu() {
             <div className="relative items-center gap-2 text-white w-200 flex justify-between">
               <div>
                 <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Vetítések</Link>
-                <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
+                <Link to={"/jegyarak"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
               </div>
               {token ? (
                 <></>

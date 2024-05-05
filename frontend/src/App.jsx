@@ -1,9 +1,11 @@
+import {BrowserRouter as Router,Routes,Route,Navigate} from 'react-router-dom';
 import Menu from "./components/Menu";
+import Main from "./components/Main";
 import Settings from "./components/Settings";
 import Vedett from "./components/Vedett";
-import Main from "./components/Main";
-import {BrowserRouter as Router,Routes,Route,Navigate} from 'react-router-dom';
+import Jegyarak from './components/Jegyarak';
 import Sema from "./components/Sema";
+
 import { UserProvider } from "./context/UserContext";
 import { AdatProvider } from "./context/AdatContext";
 import { FilmProvider}  from "./context/FilmekContext";
@@ -22,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/filmek/:filmId" element={<Sema />} />
+          <Route path="/jegyarak" element={<Jegyarak />} />
           <Route path="/settings" element={<Settings />}/>
           <Route path="/vedett" element={<Vedett />} />
           <Route path="*" element={<Navigate to={'/'} />} />          
