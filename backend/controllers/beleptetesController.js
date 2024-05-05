@@ -32,7 +32,7 @@ const FilmNev_lista = (req, res) => {
 };
 
 const generateToken=(email)=>{
-    return jwt.sign({email},process.env.JWT_SECRET,{expiresIn:"60000"});
+    return jwt.sign({email},process.env.JWT_SECRET,{expiresIn:"24h"});
 }
 
 const Register = (req, res) => {
@@ -96,11 +96,113 @@ const validation = (req,res) => {
     });
 }
 
+const modositEmail = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const { Uj_Email } = req.body;
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            const userEmail = decoded.email;
+            con.query("UPDATE vasarlok SET E_mail = ? WHERE E_mail = ?", [Uj_Email, userEmail], (err) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).json({message: "Sikeres E-mail frissítés!"});
+                }
+            });
+        }
+    });
+}
+
+const modositTel = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const { Uj_Telefonszam } = req.body;
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            const userEmail = decoded.email;
+            con.query("UPDATE vasarlok SET Telefonszam = ? WHERE E_mail = ?", [Uj_Telefonszam, userEmail], (err) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).json({message: "Sikeres telefonszám frissítés!"});
+                }
+            });
+        }
+    });
+}
+
+const modositAdo = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    var { Uj_Adoszam } = req.body;
+    if (Uj_Adoszam == "") {Uj_Adoszam = null};
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            const userEmail = decoded.email;
+            con.query("UPDATE vasarlok SET Adoszam = ? WHERE E_mail = ?", [Uj_Adoszam, userEmail], (err) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).json({message: "Sikeres adószám frissítés!"});
+                }
+            });
+        }
+    });
+}
+
+const modositJelszo = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const { Uj_Jelszo } = req.body;
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            const userEmail = decoded.email;
+            con.query("UPDATE vasarlok SET Jelszo = ? WHERE E_mail = ?", [Uj_Jelszo, userEmail], (err) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).json({message: "Sikeres jelszó frissítés!"});
+                }
+            });
+        }
+    });
+}
+
+const modositPkep = (req,res) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const { Uj_Pkep } = req.body;
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ message: "Érvénytelen token!" });
+        } else {
+            const userEmail = decoded.email;
+            con.query("UPDATE vasarlok SET pKep = ? WHERE E_mail = ?", [Uj_Pkep, userEmail], (err) => {
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).json({message: "Sikeres profilkép frissítés!"});
+                }
+            });
+        }
+    });
+}
+
+
 module.exports = {
     Film_lista,
     FilmNev_lista,
     Register,
     Login,
     getInfo,
-    validation
+    validation,
+    modositEmail,
+    modositTel,
+    modositAdo,
+    modositJelszo,
+    modositPkep
 };

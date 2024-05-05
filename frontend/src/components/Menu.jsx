@@ -23,7 +23,10 @@ function Menu() {
   window.addEventListener("scroll", setFixed);
 
   //login
-  const { logout, login, register, name } = useContext(UserContext);
+  const { logout, login, register, pKep, nev, tokenChange } = useContext(UserContext);
+  useEffect(() => {
+    tokenChange(sessionStorage.getItem("usertoken"));
+}, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +35,6 @@ function Menu() {
     } else if (reg) {
       register(formData);
     }
-    //action
   };
 
   let formObj = {};
@@ -117,9 +119,7 @@ function Menu() {
                 <Link to={"/"} className="border px-2 py-1 mr-3 rounded-md">Jegyárak</Link>
               </div>
               {token ? (
-                <div className="flex items-center">
-                  <button onClick={logout} className="border px-2 py-1 mr-3 rounded-md ">Kijelentkezés</button>
-                </div>
+                <></>
               ) : (
                 <div className="flex items-center">
                   <button onClick={kibe} className="border px-2 py-1 mr-3 rounded-md ">Belépés</button>
@@ -129,12 +129,12 @@ function Menu() {
             </div>
           </div>
         </div>
-        {token ? <img onClick={profileShow} src={sessionStorage.getItem("ProfilePicture")} className="flex w-32 h-32 rounded-full mx-3"/> : <></>}
+        {token ? <img onClick={profileShow} src={pKep} className="flex w-32 h-32 rounded-full mx-3"/> : <></>}
       </div>
 
       <div id="profileModule" className="absolute text-white w-200 bg-gray-600 p-10 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]" style={{ zIndex: "8000" }} hidden>
         <ul>
-          <li>Név: {sessionStorage.getItem("Name")}</li>
+          <li>Név: {nev}</li>
           <Link to={"/settings"}>Beállítások</Link>
           <li onClick={logout}>Kijelentkezés</li>
         </ul>
@@ -168,12 +168,7 @@ function Menu() {
           <p className="text-gray-700 mb-6">Kérjük lépjen be.</p>
           <form onSubmit={onSubmit}>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="E_mail"
-              >
-                E-mail cím
-              </label>
+              <label className="block text-gray-700 font-bold mb-2" htmlFor="E_mail">E-mail cím</label>
               <input
                 onChange={writeData}
                 value={formData.E_mail}
@@ -190,22 +185,10 @@ function Menu() {
               >
                 Jelszó
               </label>
-              <input
-                onChange={writeData}
-                value={formData.Jelszo}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="Jelszo"
-                type="password"
-                placeholder="Jelszó"
-              />
+              <input onChange={writeData} value={formData.Jelszo} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="Jelszo" type="password" placeholder="Jelszó"/>
             </div>
             <div className="flex items-center justify-between">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                Belépés
-              </button>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Belépés</button>
             </div>
           </form>
         </div>
