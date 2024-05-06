@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/',require('./routes/beleptetesRoutes'));
 app.use('/',require('./routes/jegyArakRoutes'));
 app.use('/',require('./routes/vetitesekRoutes'));
+app.use('/',require('./routes/kosarakRoutes'));
 
 app.listen(8000,()=>console.log("Running"));
 

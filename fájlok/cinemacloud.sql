@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Ápr 29. 09:38
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.2.4
+-- Létrehozás ideje: 2024. Máj 06. 14:29
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `cinemacloud`
+-- Adatbázis: `mozi`
 --
 
 -- --------------------------------------------------------
@@ -32,17 +32,17 @@ CREATE TABLE `ertekesitesek` (
   `VTS_Id` int(11) NOT NULL,
   `VSO_E_mail` varchar(40) NOT NULL,
   `Sorozatszam` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `ertekesitesek`
 --
 
 INSERT INTO `ertekesitesek` (`Datum`, `VTS_Id`, `VSO_E_mail`, `Sorozatszam`) VALUES
-('2024-04-29 09:36:59', 1, 'MatatAKakiban@gmail.com', '12345678901234567890'),
-('2024-04-29 09:36:59', 2, 'nagymari@gmail.com', '19658742365889414550'),
-('2024-04-29 09:36:59', 3, 'lakcsiberi@gmail.com', '15478903260214578960'),
-('2024-04-29 09:36:59', 4, 'keresztlacika@gmail.com', '14536021478960215780');
+('2024-05-05 00:05:30', 1, 'MatatAKakiban@gmail.com', '12345678901234567890'),
+('2024-05-05 00:05:30', 2, 'nagymari@gmail.com', '19658742365889414550'),
+('2024-05-05 00:05:30', 3, 'lakcsiberi@gmail.com', '15478903260214578960'),
+('2024-05-05 00:05:30', 4, 'keresztlacika@gmail.com', '14536021478960215780');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `filmek` (
   `ertekeles` float DEFAULT NULL,
   `leiras` varchar(500) DEFAULT NULL,
   `kepLink` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `filmek`
@@ -73,7 +73,7 @@ CREATE TABLE `filmek` (
 
 INSERT INTO `filmek` (`Id`, `Cim`, `Kategoria`, `Rendezo`, `Hossz`, `Korhatar`, `Tipus`, `Megjelenesi_Ev`, `Nyelv`, `Szereplok`, `Felirat`, `ertekeles`, `leiras`, `kepLink`) VALUES
 (1, 'Az – Második fejezet', 'Horror', 'Andy Muschietti', '02:49:00', 18, '2D,3D', 2019, 'Magyar', 'James McAvoy, Jessica Chastain, Bill Hader, Isaiah Mustafa, Jay Ryan, Bill Skarsgård, James Ransone, Andy Bean, Teach Grant, Jaeden Martell, Sophia Lillis, Finn Wolfhard, Chosen Jacobs, Jeremy Ray Taylor, Jack Dylan Grazer profilképeJack Dylan Grazer, Wyatt Oleff, Nicholas Hamilton, Javier Botet, Xavier Dolan profilképeXavier Dolan, Jess Weixler profilképeJess Weixler, Ryan Kiera Armstrong', 0, NULL, NULL, 'https://media.port.hu/images/001/158/794.jpg'),
-(2, 'A nyolcadik utas: a Halál', 'Horror', 'Ridley Scott', '01:57:00', 15, '2D', 1979, 'Magyar', 'Sigourney Weaver, John Hurt, Tom Skerritt, Veronica Cartwright, Harry Dean Stanton, Sir Ian Holm, Yaphet Kotto', 0, NULL, NULL, 'https://upload.wikimedia.org/wikipedia/hu/c/cd/A_nyolcadik_utas_a_Hal%C3%A1l.png'),
+(2, 'A nyolcadik utas: a Halál', 'Horror', 'Ridley Scott', '01:57:00', 18, '2D', 1979, 'Magyar', 'Sigourney Weaver, John Hurt, Tom Skerritt, Veronica Cartwright, Harry Dean Stanton, Sir Ian Holm, Yaphet Kotto', 0, NULL, NULL, 'https://upload.wikimedia.org/wikipedia/hu/c/cd/A_nyolcadik_utas_a_Hal%C3%A1l.png'),
 (3, 'Jurassic World: Világuralom', 'Akció/Sci-fi,kalandfilm', 'Colin Trevorrow', '02:26:00', 16, '2D,3D', 2022, 'Magyar', 'Bryce Dallas Howard, Chris Pratt, Dichen Lachman, Sam Neill, Laura Dern, Jake Johnson, Jeff Goldblum, Justice Smith, Daniella Pineda, B.D. Wong, Omar Sy, Mamoudou Athie, DeWanda Wise, Scott Haze', 0, NULL, NULL, 'https://media.port.hu/images/001/485/113.jpg'),
 (4, 'Ted', 'vígjáték', 'Seth MacFarlane', '01:46:00', 16, '2D,3D', 2012, 'Magyar', 'Mark Wahlberg, Seth MacFarlane,Mila Kunis,Giovanni Ribisi,Patrick Warburton,Laura Vandervoort,Joel McHale,Melissa Ordway,Jessica Barth,Jessica Stroup,Ralph Garman', 0, NULL, NULL, 'https://m.media-amazon.com/images/M/MV5BNDlkYzIwYTYtOWZjMC00M2NlLWI1NDgtNjUzN2NmYWI5YThkXkEyXkFqcGdeQXVyMTYzMjQ4Nzg@._V1_.jpg');
 
@@ -88,17 +88,17 @@ CREATE TABLE `kosarak` (
   `VTS_Id` int(11) NOT NULL,
   `VSO_E_mail` varchar(40) NOT NULL,
   `Darabszam` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `kosarak`
 --
 
 INSERT INTO `kosarak` (`Datum`, `VTS_Id`, `VSO_E_mail`, `Darabszam`) VALUES
-('2024-04-29', 1, 'MatatAKakiban@gmail.com', 199),
-('2024-04-29', 2, 'nagymari@gmail.com', 99),
-('2024-04-29', 3, 'lakcsiberi@gmail.com', 77),
-('2024-04-29', 4, 'keresztlacika@gmail.com', 49);
+('2024-05-05', 1, 'MatatAKakiban@gmail.com', 199),
+('2024-05-05', 2, 'nagymari@gmail.com', 99),
+('2024-05-05', 3, 'lakcsiberi@gmail.com', 77),
+('2024-05-05', 4, 'keresztlacika@gmail.com', 49);
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ CREATE TABLE `mozik` (
   `Weboldal` varchar(100) NOT NULL,
   `Telefonszam` varchar(14) NOT NULL,
   `Email_Cim` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `mozik`
@@ -143,7 +143,7 @@ CREATE TABLE `termek` (
   `Ferohely` int(4) NOT NULL,
   `Kompatibilis` varchar(30) NOT NULL,
   `Elerheto` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `termek`
@@ -166,17 +166,17 @@ CREATE TABLE `tipusarak` (
   `TPS_Tipus` varchar(10) NOT NULL,
   `AR` int(11) NOT NULL,
   `Datum_Vege` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `tipusarak`
 --
 
 INSERT INTO `tipusarak` (`Datum_Kezdete`, `TPS_Tipus`, `AR`, `Datum_Vege`) VALUES
-('2024-04-29 09:36:59', '2D', 1999, NULL),
-('2024-04-29 09:36:59', '3D', 2999, NULL),
-('2024-04-29 09:36:59', 'IMAX', 3999, NULL),
-('2024-04-29 09:36:59', 'SCREENX', 4999, NULL);
+('2024-05-05 00:05:30', '2D', 1999, NULL),
+('2024-05-05 00:05:30', '3D', 2999, NULL),
+('2024-05-05 00:05:30', 'IMAX', 3999, NULL),
+('2024-05-05 00:05:30', 'SCREENX', 4999, NULL);
 
 -- --------------------------------------------------------
 
@@ -186,7 +186,7 @@ INSERT INTO `tipusarak` (`Datum_Kezdete`, `TPS_Tipus`, `AR`, `Datum_Vege`) VALUE
 
 CREATE TABLE `tipusok` (
   `Tipus` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `tipusok`
@@ -207,7 +207,7 @@ INSERT INTO `tipusok` (`Tipus`) VALUES
 CREATE TABLE `valtozatok` (
   `FIM_Id` int(11) NOT NULL,
   `TPS_Tipus` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `valtozatok`
@@ -233,18 +233,19 @@ CREATE TABLE `vasarlok` (
   `Allapot` varchar(20) NOT NULL,
   `Adoszam` varchar(16) DEFAULT NULL,
   `Jelszo` varchar(40) NOT NULL,
-  `Utolsobelepes_Datum` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  `Utolsobelepes_Datum` date NOT NULL DEFAULT current_timestamp(),
+  `pKep` varchar(2000) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `vasarlok`
 --
 
-INSERT INTO `vasarlok` (`Vnev`, `Knev`, `E_mail`, `Telefonszam`, `Allapot`, `Adoszam`, `Jelszo`, `Utolsobelepes_Datum`) VALUES
-('Keresztes', 'Lacika', 'keresztlacika@gmail.com', '+36201478625', 'Aktív', NULL, 'titok_23', '2024-04-29'),
-('Lakatos', 'Bertalan', 'lakcsiberi@gmail.com', '+36204586520', 'Aktív', NULL, 'titok_23', '2024-04-29'),
-('Nagy', 'Lajos', 'MatatAKakiban@gmail.com', '06302478620', 'Aktív', NULL, 'titok_23', '2024-04-29'),
-('Nagy', 'Márta', 'nagymari@gmail.com', '+36301653459', 'Aktív', NULL, 'titok_23', '2024-04-29');
+INSERT INTO `vasarlok` (`Vnev`, `Knev`, `E_mail`, `Telefonszam`, `Allapot`, `Adoszam`, `Jelszo`, `Utolsobelepes_Datum`, `pKep`) VALUES
+('Keresztes', 'Lacika', 'keresztlacika@gmail.com', '+36201478625', 'Aktív', NULL, 'asd', '2024-05-05', 'https://www.kepfeltoltes.eu/images/2024/05/04/157asd.png'),
+('Lakatos', 'Bertalan', 'lakcsiberi@gmail.com', '+36204586520', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png'),
+('Nagy', 'Lajos', 'MatatAKakiban@gmail.com', '06302478620', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png'),
+('Nagy', 'Márta', 'nagymari@gmail.com', '+36301653459', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png');
 
 -- --------------------------------------------------------
 
@@ -258,18 +259,19 @@ CREATE TABLE `vetitesek` (
   `VTT_FIM_Id` int(11) NOT NULL,
   `VTT_TPS_Tipus` varchar(10) NOT NULL,
   `Helyek_Szama` int(11) NOT NULL,
-  `Datum` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  `Datum` varchar(12) NOT NULL DEFAULT current_timestamp(),
+  `IdoPont` varchar(10) NOT NULL DEFAULT '09:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `vetitesek`
 --
 
-INSERT INTO `vetitesek` (`Id`, `TRM_Id`, `VTT_FIM_Id`, `VTT_TPS_Tipus`, `Helyek_Szama`, `Datum`) VALUES
-(1, 1, 1, '2D', 0, '2024-04-29 09:36:59'),
-(2, 2, 2, '2D', 0, '2024-04-29 09:36:59'),
-(3, 3, 3, '3D', 0, '2024-04-29 09:36:59'),
-(4, 4, 4, '2D', 0, '2024-04-29 09:36:59');
+INSERT INTO `vetitesek` (`Id`, `TRM_Id`, `VTT_FIM_Id`, `VTT_TPS_Tipus`, `Helyek_Szama`, `Datum`, `IdoPont`) VALUES
+(1, 1, 1, '2D', 0, '2024-05-05', '09:00'),
+(2, 2, 2, '2D', 0, '2024-05-05', '09:00'),
+(3, 3, 3, '3D', 0, '2024-05-05', '09:00'),
+(4, 4, 4, '2D', 0, '2024-05-05', '09:00');
 
 --
 -- Indexek a kiírt táblákhoz

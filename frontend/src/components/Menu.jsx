@@ -135,6 +135,7 @@ function Menu() {
       <div id="profileModule" className={fix ? "fixed rounded-xl border-[1px] border-white text-white w-200 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]" : "absolute rounded-xl border-[1px] border-white text-white w-200 lg:right-[30%] md:right-[9%] sm:right-[13%] sm:top-[45%] md:top-[25%] lg:top-[18%]"} style={{ zIndex: "8001"}} hidden>
           <ul className="text-white opacity-80 bg-gray-600 top-0 p-8 rounded-xl">
             <li className="z-10">Név: {nev}</li>
+            <li><Link to={"/kosar"}>Kosár</Link></li>
             <Link to={"/settings"}>Beállítások</Link>
             <li onClick={logout}>Kijelentkezés</li>
           </ul>
