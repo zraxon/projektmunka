@@ -20,7 +20,7 @@ const Film_lista = (req, res) => {
 };
 
 const FilmNev_lista = (req, res) => {
-    const [ Id ] = req.params.Id;
+    const Id = req.params.Id;
     con.query("select * from filmek where Id = ?", [Id], (err, result) => {
         if (err) {
             res.status(400).send(err);
