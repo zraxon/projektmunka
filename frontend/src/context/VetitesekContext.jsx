@@ -3,7 +3,8 @@ import { useState, createContext } from "react";
 const VetitesContext = createContext();
 
 export const VetitesProvider = ({ children }) => {
-    const [Vetitesek, setVetitesek] = useState([])
+    const [Vetitesek, setVetitesek] = useState([]);
+    const [KeresVetites, setKeresVet] = useState([]);
 
     async function VetitesekFunc(){
         try {
@@ -18,9 +19,22 @@ export const VetitesProvider = ({ children }) => {
         }
     }
 
+    async function KeresVet(filmId){
+        try {
+            const response = await fetch(`http://localhost:8000/keresvet/${filmId}`);
+            if (!response.ok) {
+                throw new Error('A kérés sikertelen.');
+            }
+            const vetitesek = await response.json();
+            setKeresVet(vetitesek);
+        } catch (err) {
+            alert(err.message);
+        }
+    }
+
 
     return (
-        <VetitesContext.Provider value={{ VetitesekFunc, Vetitesek }}>
+        <VetitesContext.Provider value={{ VetitesekFunc, Vetitesek, KeresVet, KeresVetites }}>
             {children}
         </VetitesContext.Provider>
     );

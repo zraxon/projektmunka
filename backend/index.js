@@ -14,5 +14,5 @@ app.use('/',require('./routes/kosarakRoutes'));
 app.listen(8000,()=>console.log("Running"));
 
 app.get('/', (req,res) => {
-    res.send('Felhasználó beléptetés');
+    res.send('Mozi Adatbázis');
 });

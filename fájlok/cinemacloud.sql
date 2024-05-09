@@ -242,7 +242,7 @@ CREATE TABLE `vasarlok` (
   `Telefonszam` varchar(14) NOT NULL,
   `Allapot` varchar(20) NOT NULL,
   `Adoszam` varchar(16) DEFAULT NULL,
-  `Jelszo` varchar(40) NOT NULL,
+  `Jelszo` varchar(2000) NOT NULL,
   `Utolsobelepes_Datum` date NOT NULL DEFAULT current_timestamp(),
   `pKep` varchar(2000) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png',
   `penz` int(11) NOT NULL DEFAULT 10000

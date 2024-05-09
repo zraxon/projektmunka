@@ -19,9 +19,37 @@ export const KosarProvider = ({ children }) => {
         .catch(err => alert(err));
     }
 
+    const ujKosar = async (token, adatok) => {
+        await fetch(`${import.meta.env.VITE_BASE_URL}/ujkosar`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(adatok)
+        })
+        .then(res => res.json())
+        .then(uzenet => {alert(uzenet.message);})
+        .catch(err => alert(err));
+    }
+
+    const torolKosar = async (token, adatok) => {
+        await fetch(`${import.meta.env.VITE_BASE_URL}/torolkosar`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(adatok)
+        })
+        .then(res => res.json())
+        .then(uzenet => {alert(uzenet.message);})
+        .catch(err => alert(err));
+    }
+
 
     return (
-        <KosarContext.Provider value={{ getKosar, kosarak }}>
+        <KosarContext.Provider value={{ getKosar, kosarak, ujKosar, torolKosar }}>
             {children}
         </KosarContext.Provider>
     );

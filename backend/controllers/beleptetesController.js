@@ -34,9 +34,10 @@ const generateToken=(email)=>{
     return jwt.sign({email},process.env.JWT_SECRET,{expiresIn:"24h"});
 }
 
-const Register = (req, res) => {
+const Register = async (req, res) => {
     const {Vnev, Knev, E_mail2, Telefonszam, Adoszam, Jelszo2} = req.body;
-    con.query("insert into vasarlok (Vnev, Knev, E_mail, Telefonszam, Allapot, Adoszam, Jelszo) values (?,?,?,?, 'Aktív',?,?)", [Vnev, Knev, E_mail2, Telefonszam, Adoszam, Jelszo2], (err, result) => {
+    const hashedPassword=await bcrypt.hash(Jelszo2, 10);
+    con.query("insert into vasarlok (Vnev, Knev, E_mail, Telefonszam, Allapot, Adoszam, Jelszo) values (?,?,?,?, 'Aktív',?,?)", [Vnev, Knev, E_mail2, Telefonszam, Adoszam, hashedPassword], (err, result) => {
         if (err) {
             res.status(400).send({"message": "0"});
         } else {    
@@ -50,21 +51,31 @@ const Register = (req, res) => {
     });
 };
 
-const Login = (req, res) => {
+const Login = async (req, res) => {
     const {E_mail, Jelszo} = req.body;
-    con.query("select E_mail, Jelszo from vasarlok where E_mail = ? and Jelszo = ?", [E_mail, Jelszo], (err, result) => {
+    con.query("select E_mail, Jelszo from vasarlok where E_mail = ?", [E_mail], async (err, result) => {
         if (err) {
             res.status(400).send(err);
         } else {
-            if (result != ""){
-                const token = generateToken(result[0].E_mail)
-                res.status(200).json(token);
+            if (result.length > 0) {
+                const hashedPassword = result[0].Jelszo;
+                const jelszoEllenor = await bcrypt.compare(Jelszo, hashedPassword);
+                console.log(Jelszo)
+                console.log(hashedPassword)
+                console.log(jelszoEllenor)
+                if (jelszoEllenor) {
+                    const token = generateToken(result[0].E_mail)
+                    res.status(200).json(token);
+                } else {
+                    res.status(400).send({message: "Hibás jelszó!"});
+                }
             } else {
-                res.status(400).send({"message": "0"});
+                res.status(400).send({message: "Nem található a felhasználó"});
             }
-        };
+        }
     });
 };
+
 
 const getInfo = (req, res) => {
     const token = req.headers.authorization.split(' ')[1];

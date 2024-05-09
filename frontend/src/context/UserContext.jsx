@@ -48,7 +48,7 @@ export const UserProvider = ({ children }) => {
                     toast.success("Sikeres belépés!");
                     window.location.reload();
                 }
-                else if (token.message == "0") alert("Hibás E-mail cím vagy jelszó!");
+                else if (token.message == "Hibás jelszó!") alert("Hibás E-mail cím vagy jelszó!");
             })
             .catch(err => console.log(err));
     }

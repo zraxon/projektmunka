@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import tizenHat from '../../assets/16_icon.png'
 import tizenNyolc from '../../assets/18_icon.png'
+import KosarContext from '../../context/KosarContext';
 
 function Vetites({ vetites }) {
     const eredetiDatum = vetites.Datum.split('-');
+    const adatok = {
+        VTS_Id: vetites.Id,
+        darabszam: "1"
+    }
+    const {ujKosar} = useContext(KosarContext);
+
+    function onSubmit(){
+        ujKosar(sessionStorage.getItem("usertoken") ,adatok)
+    }
     return (
 <div class="bg-white shadow-lg rounded-lg p-4 mb-4 flex text-black w-4/5 m-auto relative">
     <img src={vetites.kepLink} class="w-64 h-100 object-cover rounded-t-lg mr-4" />
@@ -18,8 +28,8 @@ function Vetites({ vetites }) {
         <p className='mt-10 text-2xl'>Vetítés Dátuma: {eredetiDatum[0] + "." + eredetiDatum[1] + "." + eredetiDatum[2]} {vetites.IdoPont}</p>
     </div>
     <div className='ml-5 py-20 h-100 w-32 relative'>
-                <button className='text-2xl bg-blue-200 p-3 rounded-2xl hover:bg-blue-500 h-full w-full absolute inset-0'>Kosárba</button>
-            </div>
+        <button className='text-2xl bg-blue-200 p-3 rounded-2xl hover:bg-blue-500 h-full w-full absolute inset-0' onClick={onSubmit}>Kosárba</button>
+    </div>
 </div>
 
     )
