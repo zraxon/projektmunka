@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Máj 07. 14:19
+-- Létrehozás ideje: 2024. Máj 12. 22:35
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -94,7 +94,7 @@ INSERT INTO `filmek` (`Id`, `Cim`, `Kategoria`, `Rendezo`, `Hossz`, `Korhatar`, 
 --
 
 CREATE TABLE `kosarak` (
-  `Datum` date NOT NULL DEFAULT current_timestamp(),
+  `Datum` datetime NOT NULL DEFAULT current_timestamp(),
   `VTS_Id` int(11) NOT NULL,
   `VSO_E_mail` varchar(40) NOT NULL,
   `Darabszam` int(11) NOT NULL
@@ -105,10 +105,13 @@ CREATE TABLE `kosarak` (
 --
 
 INSERT INTO `kosarak` (`Datum`, `VTS_Id`, `VSO_E_mail`, `Darabszam`) VALUES
-('2024-05-05', 1, 'MatatAKakiban@gmail.com', 199),
-('2024-05-05', 2, 'nagymari@gmail.com', 99),
-('2024-05-05', 3, 'lakcsiberi@gmail.com', 77),
-('2024-05-05', 4, 'keresztlacika@gmail.com', 49);
+('2024-05-05 00:00:00', 1, 'MatatAKakiban@gmail.com', 199),
+('2024-05-05 00:00:00', 2, 'nagymari@gmail.com', 99),
+('2024-05-05 00:00:00', 3, 'lakcsiberi@gmail.com', 77),
+('2024-05-07 14:40:09', 1, 'MatatAKakiban@gmail.com', 1),
+('2024-05-07 14:40:28', 1, 'MatatAKakiban@gmail.com', 1),
+('2024-05-09 13:06:55', 2, 'keresztlacika@gmail.com', 1),
+('2024-05-09 13:41:07', 1, 'aaa', 1);
 
 -- --------------------------------------------------------
 
@@ -242,7 +245,7 @@ CREATE TABLE `vasarlok` (
   `Telefonszam` varchar(14) NOT NULL,
   `Allapot` varchar(20) NOT NULL,
   `Adoszam` varchar(16) DEFAULT NULL,
-  `Jelszo` varchar(2000) NOT NULL,
+  `Jelszo` varchar(1000) NOT NULL,
   `Utolsobelepes_Datum` date NOT NULL DEFAULT current_timestamp(),
   `pKep` varchar(2000) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png',
   `penz` int(11) NOT NULL DEFAULT 10000
@@ -253,6 +256,9 @@ CREATE TABLE `vasarlok` (
 --
 
 INSERT INTO `vasarlok` (`Vnev`, `Knev`, `E_mail`, `Telefonszam`, `Allapot`, `Adoszam`, `Jelszo`, `Utolsobelepes_Datum`, `pKep`, `penz`) VALUES
+('a', 'a', 'a', 'a', 'Aktív', 'a', '$2a$10$WzovFw54eve9DV51ArmcjeohtGMUOeBGP', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
+('aa', 'aa', 'aa', 'aa', 'Aktív', 'aa', '$2a$10$3Z2GlMWvDuDKJ1hWzGmeN.dlWC8wcVPNJ', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
+('aaa', 'aaa', 'aaa', 'aaa', 'Aktív', 'aaa', '$2a$10$/78lBshsLObz/Sjg2qBsvOvWgkhZERfCh94ncT2YFWLZyiPiPosHm', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
 ('Keresztes', 'Lacika', 'keresztlacika@gmail.com', '+36201478625', 'Aktív', NULL, 'asd', '2024-05-05', 'https://www.kepfeltoltes.eu/images/2024/05/04/157asd.png', 10000),
 ('Lakatos', 'Bertalan', 'lakcsiberi@gmail.com', '+36204586520', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
 ('Nagy', 'Lajos', 'MatatAKakiban@gmail.com', '06302478620', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
