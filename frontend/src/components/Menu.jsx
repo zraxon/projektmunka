@@ -214,7 +214,7 @@ function Menu() {
       >
         <div className="p-5">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">CinemaCloud</h2>
-          <p className="text-gray-700 mb-6">Kérjük regisztáljon.</p>
+          <p className="text-gray-700 mb-6">Kérjük regisztráljon.</p>
           <form onSubmit={onSubmit}>
             <div className="mb-4">
               <label

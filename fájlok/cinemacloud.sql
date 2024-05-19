@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Máj 12. 22:35
+-- Létrehozás ideje: 2024. Máj 07. 14:19
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -75,7 +75,7 @@ INSERT INTO `filmek` (`Id`, `Cim`, `Kategoria`, `Rendezo`, `Hossz`, `Korhatar`, 
 (1, 'Az – Második fejezet', 'Horror', 'Andy Muschietti', '02:49:00', 18, '2D,3D', 2019, 'Magyar', 'James McAvoy, Jessica Chastain, Bill Hader, Isaiah Mustafa, Jay Ryan, Bill Skarsgård, James Ransone, Andy Bean, Teach Grant, Jaeden Martell, Sophia Lillis, Finn Wolfhard, Chosen Jacobs, Jeremy Ray Taylor, Jack Dylan Grazer profilképeJack Dylan Grazer, Wyatt Oleff, Nicholas Hamilton, Javier Botet, Xavier Dolan profilképeXavier Dolan, Jess Weixler profilképeJess Weixler, Ryan Kiera Armstrong', 0, 5.5, 'A Vesztesek Klubja legyőzte a kísérteties Pennywise bohócot, túlélte a felfoghatatlan kalandot, tagjai szétszóródtak – felnőttek. De mindannyian tudják, hogy nem hagyhatják maguk mögött a múltjukat. Hiába győzték le a gonoszt, ha az elpusztíthatatlan…\n27 évvel később egy telefonhívás ébreszti mindannyiukat: Derryből keresik őket. Újrakezdődtek a megmagyarázhatatlan eltűnések, a kisváros utcáit és házait ismét hatalmába keríti a rettegés.\nA Vesztesek hűek egykori fogadalmukhoz: hazamennek, hogy újra szembenézzenek a lisztes képű, festett arcú, kacsázó léptű borzalommal.\n', 'https://media.port.hu/images/001/158/794.jpg'),
 (2, 'A nyolcadik utas: a Halál', 'Horror', 'Ridley Scott', '01:57:00', 18, '2D', 1979, 'Magyar', 'Sigourney Weaver, John Hurt, Tom Skerritt, Veronica Cartwright, Harry Dean Stanton, Sir Ian Holm, Yaphet Kotto', 0, 9, 'A Nostromo űrhajó a hazatérés helyett a képernyőn villogó pont nyomába ered. Váratlan küldetésük egy kihalt bolygóra vezeti őket, ahol egy elhagyott űrhajót találnak, belsejében számtalan, tojás alakú kapszulával. Miközben óvatosan próbálják feltárni az űrsikló titkát, az egyik tojásból hirtelen kirobban egy lény és rátapad Kane (John Hurt) arcára, aki teljesen megbénul. Miután Kane visszanyeri az eszméletét és csatlakozik a többiekhez, megdöbbentő dolog történik. Kane testéből egy szörny kel ki, amely sorra végez az űrhajósokkal. Ripley (Sigourney Weaver) azonban nem törődik bele a halálba.', 'https://upload.wikimedia.org/wikipedia/hu/c/cd/A_nyolcadik_utas_a_Hal%C3%A1l.png'),
 (3, 'Jurassic World: Világuralom', 'Akció/Sci-fi,kalandfilm', 'Colin Trevorrow', '02:26:00', 16, '2D,3D', 2022, 'Magyar', 'Bryce Dallas Howard, Chris Pratt, Dichen Lachman, Sam Neill, Laura Dern, Jake Johnson, Jeff Goldblum, Justice Smith, Daniella Pineda, B.D. Wong, Omar Sy, Mamoudou Athie, DeWanda Wise, Scott Haze', 0, 5.8, 'A Jurassic World rendezője, Colin Trevorrow új filmje, a Világuralom négy évvel azután játszódik, hogy a Nublar-sziget elpusztult. A dinoszauruszok most már világszerte az emberek között élnek – és vadásznak. Ez a törékeny egyensúly átformálja a jövőt és egyszer s mindenkorra meghatározza, hogy az emberi lények maradnak-e a fő ragadozók a bolygón, melyen most a történelem legfélelmetesebb teremtményeivel kell osztozniuk.\nIdén nyáron tanúi lehetünk az eddig 5 milliárd dollárt hozó Jurassic-korszak nagyszabású lezárásának, melyben a két generáció most először egyesül. Chris Pratthez és Bryce Dallas Howardhoz csatlakozik az Oscar-díjas Laura Dern, Jeff Goldblum és Sam Neill a Jurassic World: Világuralomban, ebben a merész, időszerű és lélegzetelállító kalandban, mely felöleli az egész világot, eddig sosem látott dinoszauruszokkal, nyaktörő akciókkal, és elképesztő, új vizuális effektekkel.\n', 'https://media.port.hu/images/001/485/113.jpg'),
-(4, 'Ted', 'vígjáték', 'Seth MacFarlane', '01:46:00', 16, '2D,3D', 2012, 'Magyar', 'Mark Wahlberg, Seth MacFarlane,Mila Kunis,Giovanni Ribisi,Patrick Warburton,Laura Vandervoort,Joel McHale,Melissa Ordway,Jessica Barth,Jessica Stroup,Ralph Garman', 0, 6.6, 'A Family Guy megalkotója, Seth MacFairlane sajátos, eredeti humorát most első mozifilmjében csillogtatja meg, íróként és rendezőként egyaránt. Az élő szereplőket és a számítógépes animációt ötvöző vígjáték John Bennettről szól, aki felnőtt férfiként kénytelen szeretett játékmackójával foglalkozni, aki egy gyermekkori kívánság eredményeként életre kelt, és azóta is ott él mellette.', 'https://m.media-amazon.com/images/M/MV5BNDlkYzIwYTYtOWZjMC00M2NlLWI1NDgtNjUzN2NmYWI5YThkXkEyXkFqcGdeQXVyMTYzMjQ4Nzg@._V1_.jpg'),
+(4, 'Ted', 'vígjáték', 'Seth MacFarlane', '01:46:00', 16, '2D,3D', 2012, 'Magyar', 'Mark Wahlberg, Seth MacFarlane,Mila Kunis,Giovanni Ribisi,Patrick Warburton,Laura Vandervoort,Joel McHale,Melissa Ordway,Jessica Barth,Jessica Stroup,Ralph Garman', 0, 6.6, 'A Family Guy megalkotója, Seth MacFairlane sajátos, eredeti humorát most első mozifilmjében csillogtatja meg, íróként és rendezőként egyaránt. Az élő szereplőket és a számítógépes animációt ötvöző vígjáték John Bennettről szól, aki felnőtt férfiként kénytelen szeretett játékmackójával foglalkozni, aki egy gyermekkori kívánság eredményeként életre kelt, és azóta is ott él mellette.', 'https://m.media-amazon.com/images/I/71kHn13C1pL._AC_UF894,1000_QL80_.jpg'),
 (5, 'Öt éjjel Freddy pizzázójában', 'Horror/Misztikus', 'Emma Tammi', '01:50:00', 16, '2D,3D', 2023, 'Magyar', 'Josh Hutcherson, Elizabeth Lail, Piper Rubio, Mary Stuart Masterson, Matthew Lillard', 0, 6.2, 'Túl tudsz élni öt éjszakát?\nA félelmetes horrorjáték-jelenségből vérfagyasztó moziesemény lesz, mert a Blumhouse – a M3GAN, a Fekete telefon és a Láthatatlan ember mögött álló stúdió – felvarázsolja a FIVE NIGHTS AT FREDDY’S filmet a vászonra.\nA film egy zaklatott éjjeliőrt követ, aki dolgozni kezd a Freddy Fazbear’s Pizzánál. Miközben az első éjszakáját tölti az új munkahelyén, ráébred, hogy az éjszakai műszakot Freddy’snél nem lesz olyan könnyű túlélni.\n', 'https://media.port.hu/images/001/597/836.webp'),
 (6, 'Üvegtigris', 'magyar vígjáték', 'Rudolf Péter, Kapitány Iván', '01:45:00', 16, '2D,3D', 2001, 'Magyar', 'Rudolf Péter, Reviczky Gábor, Gáspár Sándor, Szarvas József, Horváth Lajos Ottó, Csuja Imre, Bodrogi Gyula, Básti Juli, Kecskés Karina, Szilágyi Tibor, Kállai Ferenc, Nagy-Kálózy Eszter, Széles László, Selmeczi Roland, Kovács Koko István, Besenczi Árpád, Dörner György, Kaszás Attila, Magyar Attila, Kránitz Lajos, Egyed Attila', 0, 8, 'Az Üvegtigris hat barát pár eseménytelen napjának története. Lali, az Amerika-mániás büfés, aki az Üvegtigris nevű rozoga, útszéli büfékocsi tulajdonosa; Gaben, az autónepper, Róka, a piti csencselő; Sanyi a félnótás hajléktalan; Csoki, aki mindig arról szövegel, hogy majd szerez pénzt és elmegy Amerikába; és Cingár, aki a többiek idegeit nem kímélve szaxizik. Gaben rábeszéli Lalit, hogy vegyen meg egy, az amerikai álmot ízig-vérig megtestesítő régi Chevrolet Impalát. Amikor hosszú kálvária után meghozza a rég várt autót, Lali ki sem tudja próbálni, egy úton visszaforduló teherautó összetöri. Közben Róka izgatottan keresi a \"Vasat\", melyet korábban odavitt, hátha akad rá vevő. Lali azonban pár nappal azelőtt eladta a semmire sem használhatónak vélt \"fémhulladékot\". Rókára rászálltak a nehézfiúk, s halálosan megfenyegették, hogy hozza vissza, vagy fizessen. Pénzt kell tehát szerezni mindenáron. Csoki szerint egyetlen megoldás van, ki kell rabolni a közeli postát. Mindenki kocsiba száll.', 'https://snitt.hu/system/covers/big/covers_59501.jpg?1617135188'),
 (7, 'Némó nyomában', 'Kaland/Vígjáték', 'Andrew Stanton', '01:40:00', 0, '2D,3D', 2003, 'Magyar', 'Alexander Gould, Albert Brooks, Ellen DeGeneres, Willem Dafoe, Brad Garrett, Allison Janney, Austin Pendleton, Stephen Root, Vicki Lewis', 0, 9, 'Amikor Némót, a fiatal bohóchalat kifogják a Nagy-korallzátony környékén és Sydney-be viszik, Pizsi, a túlságosan védelmező apa, és Szenilla, a barátságos, de feledékeny doktorhal epikus utat kell, hogy megtegyen Némó kiszabadítása érdekében.\n', 'https://images.justwatch.com/poster/111461383/s718/nemo-nyomaban.jpg'),
@@ -94,7 +94,7 @@ INSERT INTO `filmek` (`Id`, `Cim`, `Kategoria`, `Rendezo`, `Hossz`, `Korhatar`, 
 --
 
 CREATE TABLE `kosarak` (
-  `Datum` datetime NOT NULL DEFAULT current_timestamp(),
+  `Datum` date NOT NULL DEFAULT current_timestamp(),
   `VTS_Id` int(11) NOT NULL,
   `VSO_E_mail` varchar(40) NOT NULL,
   `Darabszam` int(11) NOT NULL
@@ -105,13 +105,10 @@ CREATE TABLE `kosarak` (
 --
 
 INSERT INTO `kosarak` (`Datum`, `VTS_Id`, `VSO_E_mail`, `Darabszam`) VALUES
-('2024-05-05 00:00:00', 1, 'MatatAKakiban@gmail.com', 199),
-('2024-05-05 00:00:00', 2, 'nagymari@gmail.com', 99),
-('2024-05-05 00:00:00', 3, 'lakcsiberi@gmail.com', 77),
-('2024-05-07 14:40:09', 1, 'MatatAKakiban@gmail.com', 1),
-('2024-05-07 14:40:28', 1, 'MatatAKakiban@gmail.com', 1),
-('2024-05-09 13:06:55', 2, 'keresztlacika@gmail.com', 1),
-('2024-05-09 13:41:07', 1, 'aaa', 1);
+('2024-05-05', 1, 'MatatAKakiban@gmail.com', 199),
+('2024-05-05', 2, 'nagymari@gmail.com', 99),
+('2024-05-05', 3, 'lakcsiberi@gmail.com', 77),
+('2024-05-05', 4, 'keresztlacika@gmail.com', 49);
 
 -- --------------------------------------------------------
 
@@ -245,7 +242,7 @@ CREATE TABLE `vasarlok` (
   `Telefonszam` varchar(14) NOT NULL,
   `Allapot` varchar(20) NOT NULL,
   `Adoszam` varchar(16) DEFAULT NULL,
-  `Jelszo` varchar(1000) NOT NULL,
+  `Jelszo` varchar(2000) NOT NULL,
   `Utolsobelepes_Datum` date NOT NULL DEFAULT current_timestamp(),
   `pKep` varchar(2000) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png',
   `penz` int(11) NOT NULL DEFAULT 10000
@@ -256,9 +253,6 @@ CREATE TABLE `vasarlok` (
 --
 
 INSERT INTO `vasarlok` (`Vnev`, `Knev`, `E_mail`, `Telefonszam`, `Allapot`, `Adoszam`, `Jelszo`, `Utolsobelepes_Datum`, `pKep`, `penz`) VALUES
-('a', 'a', 'a', 'a', 'Aktív', 'a', '$2a$10$WzovFw54eve9DV51ArmcjeohtGMUOeBGP', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
-('aa', 'aa', 'aa', 'aa', 'Aktív', 'aa', '$2a$10$3Z2GlMWvDuDKJ1hWzGmeN.dlWC8wcVPNJ', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
-('aaa', 'aaa', 'aaa', 'aaa', 'Aktív', 'aaa', '$2a$10$/78lBshsLObz/Sjg2qBsvOvWgkhZERfCh94ncT2YFWLZyiPiPosHm', '2024-05-09', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
 ('Keresztes', 'Lacika', 'keresztlacika@gmail.com', '+36201478625', 'Aktív', NULL, 'asd', '2024-05-05', 'https://www.kepfeltoltes.eu/images/2024/05/04/157asd.png', 10000),
 ('Lakatos', 'Bertalan', 'lakcsiberi@gmail.com', '+36204586520', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),
 ('Nagy', 'Lajos', 'MatatAKakiban@gmail.com', '06302478620', 'Aktív', NULL, 'titok_23', '2024-05-05', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png', 10000),

@@ -59,7 +59,7 @@ const Login = async (req, res) => {
         } else {
             if (result.length > 0) {
                 const hashedPassword = result[0].Jelszo;
-                const jelszoEllenor = await bcrypt.compare(Jelszo, hashedPassword);
+                const jelszoEllenor = await  
                 console.log(Jelszo)
                 console.log(hashedPassword)
                 console.log(jelszoEllenor)

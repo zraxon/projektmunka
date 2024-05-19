@@ -39,6 +39,7 @@ function Sema(){
         <h2 className="mb-2">Film hossza: {filmek[0].Hossz}</h2>
         <h2 className="mb-2">Rendező: {filmek[0].Rendezo}</h2>
         <h2 className="mb-2">Szereplők: {filmek[0].Szereplok}</h2>
+        <h2 className="mb-2">Ismertető: {filmek[0].leiras}</h2>
         <div className="bg-gray-400 rounded-xl p-5">
           {KeresVetites.length > 0 ?
                     <div>

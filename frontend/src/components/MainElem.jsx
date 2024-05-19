@@ -20,14 +20,14 @@ function MainElem({ film }) {
                             <span className="text-white pt-2 font-semibold">{film.Megjelenesi_Ev}</span>
                             <div className="h-28">
                                 <span className="line-clamp-4 py-2 text-sm font-light leading-relaxed">
-                                    itt majd lesz 1 leírás 1x
+                                    {film.leiras}
                                 </span>
                             </div>
                             <div className=" grid-cols-2 flex group justify-between">
                                 <div className="font-black flex flex-col">
                                     <span className="text-yellow-500 text-xl">Értékelés</span>
                                     <span className="text-3xl flex gap-x-1 items-center group-hover:text-yellow-600">
-                                        8.8
+                                        {film.ertekeles}
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                                             <g id="SVGRepo_bgCarrier" strokeWidth="0" />
